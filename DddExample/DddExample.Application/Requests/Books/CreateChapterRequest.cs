@@ -1,4 +1,4 @@
-namespace DddExample.Application.CommandRequests.Books
+namespace DddExample.Application.Requests.Books
 {
     public class CreateChapterRequest
     {

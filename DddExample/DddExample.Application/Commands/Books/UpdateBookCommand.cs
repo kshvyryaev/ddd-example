@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using DddExample.Application.CommandRequests.Books;
+using DddExample.Application.Requests.Books;
 using MediatR;
 
 namespace DddExample.Application.Commands.Books

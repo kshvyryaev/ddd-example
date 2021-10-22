@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using DddExample.Application.CommandRequests.Books;
 using DddExample.Application.Commands.Books;
 using DddExample.Application.Queries;
+using DddExample.Application.Requests.Books;
 using DddExample.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +20,11 @@ namespace DddExample.Api.Controllers
             _queries = queries;
         }
 
+        /// <summary>
+        /// Метод создания книги
+        /// </summary>
+        /// <param name="request">Запрос на создание книги</param>
+        /// <returns>Id книги</returns>
         [HttpPost]
         public async Task<ActionResult<int>> CreateBookAsync([FromBody] CreateBookRequest request)
         {
@@ -28,6 +33,11 @@ namespace DddExample.Api.Controllers
             return Ok(response);
         }
         
+        /// <summary>
+        /// Метод изменения книги
+        /// </summary>
+        /// <param name="request">Запрос на изменение книги</param>
+        /// <returns></returns>
         [HttpPut]
         public async Task<ActionResult> UpdateBookAsync([FromBody] UpdateBookRequest request)
         {
@@ -36,6 +46,11 @@ namespace DddExample.Api.Controllers
             return Ok();
         }
         
+        /// <summary>
+        /// Метод удаления книги
+        /// </summary>
+        /// <param name="id">Id книги</param>
+        /// <returns></returns>
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteBookAsync([FromRoute] int id)
         {
@@ -44,6 +59,11 @@ namespace DddExample.Api.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Метод получения книги
+        /// </summary>
+        /// <param name="id">Id книги</param>
+        /// <returns>Книга</returns>
         [HttpGet("{id:int}")]
         public async Task<ActionResult<BookResponse>> GetBookAsync([FromRoute] int id)
         {
